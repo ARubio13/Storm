@@ -1,23 +1,26 @@
 #include <iostream>
+#include <fstream>
 #include <string>
-#include "defns.h"
+#include "query.cpp"
 
 using namespace std;
 
 int main(int argc, char** argv)
 {
-	if(argc != 3)
+	if(argc != 3) // if year and n are not in parameters, exit
 	{
-		cout << "[Arguments Invalid]: Input year YYYY and number of year n" << endl;
+		cout << "[arguments invalid]: ./storm <YYYY> <n>" << endl;
 		return -1;
-	}
-	if(argc = 3)
-	{
-		int year, n;
-		year = stoi(*(argv + 1));
-		n = stoi(*(argv + 2));
 
-		cout << year << " - " << n << " = " << year-n << endl;
+	}else{
+		string line;
+		int year, n;
+
+		year = stoi(*(argv + 1)); // takes string at argv[1] and turns it into var year
+		n = stoi(*(argv + 2)); // takes string at argv[2] and turns in into var n
+
+		query(year, n); // start query for storm executable
 	}
 	return 0;
+
 }
